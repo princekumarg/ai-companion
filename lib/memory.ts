@@ -4,7 +4,7 @@ import { Pinecone } from "@pinecone-database/pinecone";
 import { PineconeStore } from "@langchain/pinecone";
 
 export type CompanionKey = {
-  companionId: string;
+  companionName: string;
   modelName: string;
   userId: string;
 };
@@ -50,7 +50,7 @@ export class MemoryManager {
   }
 
   private generateRedisCompanionKey(companionKey: CompanionKey): string {
-    return `${companionKey.companionId}-${companionKey.modelName}-${companionKey.userId}`;
+    return `${companionKey.companionName}-${companionKey.modelName}-${companionKey.userId}`;
   }
 
   public async writeToHistory(text: string, companionKey: CompanionKey) {
